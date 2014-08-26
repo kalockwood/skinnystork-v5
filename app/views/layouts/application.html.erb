@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<!--<%= javascript_include_tag :application %> -->
+<html>
+<head>
+  <title>SkinnystorkV5</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= render 'layouts/header' %>
+    <div class="container">
+
+	<% if notice %>
+ 		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+ 		<p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+
+<%= yield %>
+	<%= render 'layouts/footer' %>
+	</div>
+</body>
+</html>

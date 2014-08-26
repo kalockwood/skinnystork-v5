@@ -1,0 +1,16 @@
+<!--******************************************************************************************************************-->
+<!--                                                SIGN IN PAGE                                                       -->
+<!--******************************************************************************************************************-->
+<div class="brick_texture_login"></div> <!--Pink wall background -->
+<div class='transparent_top_box_login'></div> <!--Trnasparent box over the pink wall -->
+<div class="skinnystork_title_login">SKINNYSTORK</div><!-- Big title -->
+<div class="welcome_back">welcome back! now let's get sweaty.</div><!--subtitle -->
+<div class="login_box"> </div><!-- box background containing the form fields -->
+<div class="lost_your_password_login"><%= link_to "Forgot your password?", new_password_path(resource_name) %></div> <!-- Text that links to the forgot your password page -->
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %> <!-- Initializes a form to create a new session -->
+  <%= f.input :email, :autofocus => true, input_html: {:class =>'username_fillin_box'}, label_html: {:class => 'email_login'} %> <!--Label and text field for email -->
+  <%= f.input :password , input_html: {:class =>'password_fillin_box_login'}, label_html: {:class => 'password_login'} %> <!--Label and text field for password -->
+  <div class="remember_me_login"> 
+  <%= f.input :remember_me, :class =>'remember_me_login', :as => :boolean, :label => false, :inline_label => true if devise_mapping.rememberable?%></div><!-- remember me label and checkbox -->
+  <%= f.button :submit, "Sign In", :class => 'btn-primary', :class => 'btn-login' %> <!-- Submit button of the form -->
+<% end %>
